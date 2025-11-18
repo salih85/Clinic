@@ -21,10 +21,9 @@ exports.addConsultationPage = async (req, res) => {
 
 exports.addConsultation = async (req, res) => {
     await Consultation.create({
-        patientId: req.params.id,
-        patientName: req.body.patientName,
-        problem: req.body.problem,
-        medication: req.body.medication, 
+        patient: req.body.patientName, 
+        topic: req.body.problem, 
+        prescription: req.body.prescription || req.body.medication || '', 
         status: req.body.status
     });
 
@@ -32,7 +31,7 @@ exports.addConsultation = async (req, res) => {
 };
 
 exports.consultationList = async (req, res) => {
-    const consultations = await Consultation.find();
+    const consultations = await Consultation.find(); 
     res.render('doctor/consultation', { consultations });
 };
 
@@ -42,6 +41,6 @@ exports.consultationList = async (req, res) => {
 };
 
 exports.viewConsultation = async (req, res) => {
-    const consultation = await Consultation.findById(req.params.id);
+    const consultation = await Consultation.findById(req.params.id); 
     res.render('doctor/consultation-view', { consultation });
 };
