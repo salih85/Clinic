@@ -1,12 +1,20 @@
-
 const express = require('express');
 const router = express.Router();
-const patientController = require('../controllers/desk');
 
-router.get('/add-patient', patientController.Addpatient);
+const desk = require('../controllers/desk');
 
-router.post('/patients/add', patientController.createPatient);
+router.get('/', (req, res) => {
+    res.redirect('/desk/patients');
+});
 
-router.post('/patients', patientController.listpatients);
+router.get('/add-patient', desk.Addpatient);
+router.post('/patients/add', desk.createPatient);
+router.get('/patients', desk.listpatients);
+
+router.get('/add-doctor', desk.AddDoctor);
+router.post('/doctors/add', desk.createDoctor);
+router.get('/doctors', desk.listDoctors);
 
 module.exports = router;
+
+

@@ -1,12 +1,30 @@
 const mongoose = require('mongoose');
 
 const dSchema = new mongoose.Schema({
-    id:String,
-    name:String,
-    phone:String,
-    available:{
-        type:Boolean,
-        default:false
+    id: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    specialization: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: String,
+        required: true
+    },
+    experience: {
+        type: Number,
+        required: true
+    },
+    available: {
+        type: Boolean,
+        default: false
     }
 });
 

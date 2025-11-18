@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+<%- include('navber') %>
+
+<div class="container mt-4">
+
+    <h1 class="mb-4">Doctors List</h1>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Specialization</th>
+                <th>Phone</th>
+                <th>Experience</th>
+                 <th>Available</th>   
+            </tr>
+        </thead>
+
+        <tbody>
+            <% doctors.forEach(d => { %>
+                <tr>
+                    <td><%= d.id %></td>
+                    <td><%= d.name %></td>
+                    <td><%= d.specialization %></td>
+                    <td><%= d.phone %></td>
+                    <td><%= d.experience %> years</td>
+                     <td>
+                <%= d.available ? "Yes" : "No" %>
+            </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

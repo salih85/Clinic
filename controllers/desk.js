@@ -1,14 +1,15 @@
 const Patient = require('../models/Patient');
-const doctor = require('../models/Doctor');
+const Doctor = require('../models/Doctor');
 
 exports.Addpatient = (req, res) => {
-    res.render('dask/add-patient');
+    res.render('desk/add-patient');
 };
 
 exports.createPatient = async (req, res) => {
     try {
-        const { id,name, phone,age,gender,bloodGroup,address,lastVisit, }=req.body
-         await Patients.create({
+        const { name, phone, age, gender, bloodGroup, address, lastVisit } = req.body;
+
+        await Patient.create({
             id: `P${Date.now()}`,
             name,
             phone,
@@ -19,18 +20,53 @@ exports.createPatient = async (req, res) => {
             lastVisit,
             createdAt: new Date()
         });
-       res.redirect('/');
+
+        res.redirect('/desk/patients');
     } catch (err) {
-         console.log(e);
-          res.redirect("/");
+        console.log(err);
+        res.redirect("/");
     }
 };
 
-exports.listpatients =async (req,res)=>{
-    try{
-        const patients =await parent.find()
-        return res.render('dask/patients',{patients})
-    }catch(e){
-        console.log(e)
+exports.listpatients = async (req, res) => {
+    try {
+        const patients = await Patient.find();
+        res.render('desk/patients', { patients });
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+exports.AddDoctor = (req, res) => {
+    res.render('desk/add-doctor');
+};
+
+
+exports.createDoctor = async (req, res) => {
+    try {
+        const { name, specialization, phone, experience } = req.body;
+
+        await Doctor.create({
+            id: `D${Date.now()}`,
+            name,
+            specialization,
+            phone,
+            experience,
+            available: false
+        });
+
+        res.redirect('/desk/doctors');
+    } catch (err) {
+        console.log(err);
+        res.redirect("/desk/add-doctor");
+    }
+};
+
+exports.listDoctors = async (req, res) => {
+    try {
+        const doctors = await Doctor.find();
+        res.render('desk/doctors', { doctors });
+    } catch (err) {
+        console.log(err);
     }
 };

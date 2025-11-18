@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor | Patient List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+<%- include('../doctor/navber') %>
+<div class="container mt-4">
+
+    <h1 class="mb-4 text-primary">Patient List</h1>
+
+    <table class="table table-bordered table-striped shadow-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+               <th>Action</th>
+            </tr>
+        </thead>
+
+      <tbody>
+<% patients.forEach(p => { %>
+<tr>
+    <td><%= p._id %></td>
+    <td><%= p.name %></td>
+    <td><%= p.age %></td>
+    <td><%= p.gender %></td>
+
+    <td>
+        <a href="/doctor/consultation/add/<%= p._id %>" 
+           class="btn btn-sm btn-success">
+            Add Consultation
+        </a>
+    </td>
+</tr>
+<% }) %>
+</tbody>
+
+    </table>
+</div>
+
+</body>
+</html>

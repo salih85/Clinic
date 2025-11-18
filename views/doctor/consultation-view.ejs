@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Consultation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+    <%- include('../doctor/navber') %>
+
+        <div class="container mt-4">
+            <h2 class="text-primary mb-4">Consultation Details</h2>
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    Consultation ID: <%= consultation._id %>
+                </div>
+                <div class="card-body">
+                    <p><strong>Patient Name:</strong>
+                        <%= consultation.patientName %>
+                    </p>
+                    <p><strong>Problem:</strong>
+                        <%= consultation.problem %>
+                    </p>
+                    <p><strong>Medicine/Treatment Details:</strong>
+                        <%= consultation.medication %>
+                    </p>
+                    <p>
+                        <strong>Status:</strong>
+                        <% if (consultation.status==='waiting' ) { %>
+                            <span class="badge badge-warning">Waiting</span>
+                            <% } else { %>
+                                <span class="badge badge-success">Completed</span>
+                                <% } %>
+                    </p>
+
+                    <a href="/doctor/consultation" class="btn btn-secondary mt-3">Back to List</a>
+
+                </div>
+            </div>
+
+        </div>
+
+</body>
+
+</html>
