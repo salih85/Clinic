@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background: #f0f4f8;
+        }
+        h1 {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .nav-link {
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-12">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <!-- Brand -->
+                    <a class="navbar-brand" href="/">Clinic</a>
+
+                    <!-- Toggler -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Navbar Links -->
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                            <a class="nav-link" href="/desk/add-patient">Add Patient</a>
+
+                            </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/dask/addpatient">Add doctor</a>
+                            </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/dask/addpatient"> patient</a>
+                            </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="/dask/addpatient">doctor</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="/logout" class="nav-link text-danger font-weight-bold">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <h1 class="text-center">
+                    Clinic MS
+                </h1>
+            </div>
+
+            <div class="col-12 col-md-4 mt-5">
+                <a href="/doctor" class="btn btn-lg btn-block btn-outline-primary font-weight-bold">
+                    DOCTOR
+                </a>
+            </div>
+
+            <div class="col-12 col-md-4 mt-5">
+                <a href="/desk" class="btn btn-lg btn-block btn-outline-success font-weight-bold">
+                    DESK
+                </a>
+            </div>
+
+            <div class="col-12 col-md-4 mt-5">
+                <a href="/pharm" class="btn btn-lg btn-block btn-outline-info font-weight-bold">
+                    PHARM
+                </a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
