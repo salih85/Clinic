@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pharmacy Prescriptions</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+    <%- include('navber') %>
+
+        <div class="container mt-4">
+            <h2 class="text-primary mb-4">Prescription List</h2>
+
+            <table class="table table-bordered table-striped shadow-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Patient</th>
+                        <th>Problem</th>
+                        <th>Status</th>
+                        <th>Billing</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% consultations.forEach(c=> { %>
+                        <tr>
+                            <td>
+                                <%= c.patient %>
+                            </td>
+                            <td>
+                                <%= c.topic %>
+                            </td>
+
+                            <td>
+                                <% if (c.prescriptionPurchased) { %>
+                                    <span class="badge badge-success">Purchased</span>
+                                    <% } else { %>
+                                        <span class="badge badge-warning">Pending</span>
+                                        <% } %>
+                            </td>
+
+                            <td>
+                                <% if(c.prescriptionAmount){ %>
+                                    ₹ <%= c.prescriptionAmount %>
+                                        <% } else { %>
+                                            ---
+                                            <% } %>
+                            </td>
+
+                            <td>
+                              <a class="btn btn-sm btn-success" href="/pharm/consultations/<%= c._id %>"> Billing</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+
+            </table>
+        </div>
+
+</body>
+
+</html>

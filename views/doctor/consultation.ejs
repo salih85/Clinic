@@ -12,53 +12,53 @@
 
     <%- include('../doctor/navber') %>
 
-      <div class="container mt-4">
-    <h2 class="text-primary mb-4">Consultation List</h2>
-    <table class="table table-bordered table-striped shadow-sm">
-        <thead class="thead-dark">
-            <tr>
-                <th>Patient Name</th>
-                <th>Problem</th>
-                <th>Medicine treatement details</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% if (consultations.length> 0) { %>
-                <% consultations.forEach(c=> { %>
+        <div class="container mt-4">
+            <h2 class="text-primary mb-4">Consultation List</h2>
+            <table class="table table-bordered table-striped shadow-sm">
+                <thead class="thead-dark">
                     <tr>
-                        <td>
-                            <%= c.patient %>
-                        </td>
-                        <td>
-                            <%= c.topic %>
-                        </td>
-                        <td>
-                            <%= c.prescription %>
-                        </td>
-                        <td>
-                            <% if (c.status==='waiting' ) { %>
-                                <span class="badge badge-warning">Waiting</span>
-                                <% } else { %>
-                                    <span class="badge badge-success">Completed</span>
-                                    <% } %>
-                        </td>
-
-                        <td>
-                            <a href="/doctor/consultation/view/<%= c._id %>"
-                                class="btn btn-sm btn-info">View</a>
-                        </td>
+                        <th>Patient Name</th>
+                        <th>Problem</th>
+                        <th>Medicine treatement details</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
-                    <% }) %>
-            <% } else { %>
-                <tr>
-                    <td colspan="4" class="text-center text-muted">No consultations found</td>
-                </tr>
-            <% } %>
-        </tbody>
-    </table>
-</div>
+                </thead>
+                <tbody>
+                    <% if (consultations.length> 0) { %>
+                        <% consultations.forEach(c=> { %>
+                            <tr>
+                                <td>
+                                    <%= c.patient %>
+                                </td>
+                                <td>
+                                    <%= c.topic %>
+                                </td>
+                                <td>
+                                    <%= c.prescription %>
+                                </td>
+                                <td>
+                                    <% if (c.status==='waiting' ) { %>
+                                        <span class="badge badge-warning">Waiting</span>
+                                        <% } else { %>
+                                            <span class="badge badge-success">Completed</span>
+                                            <% } %>
+                                </td>
+
+                                <td>
+                                    <a href="/doctor/consultation/view/<%= c._id %>"
+                                        class="btn btn-sm btn-info">View</a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="4" class="text-center text-muted">No consultations found</td>
+                                    </tr>
+                                    <% } %>
+                </tbody>
+            </table>
+        </div>
 </body>
 
 </html>

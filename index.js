@@ -15,17 +15,20 @@ app.use(express.json())
 
 const doctor = require('./routes/doctor')
 const desk = require('./routes/desk')
-const pharm = require('./routes/pharm')
+const pharm = require('./routes/pharm');
 const auth = require('./routes/auth')
 const admin = require('./routes/admin')
+
+
 const { isLoggedin, isDoctor, isDesk, isPharm } = require('./middlewares/auth')
 
 
 app.use('/admin',admin)
 app.use('/doctor',isLoggedin,isDoctor,doctor)
  app.use('/desk',isLoggedin,isDesk,desk)
-app.use('/pharm',isLoggedin,isPharm,pharm)
+app.use('/pharm', isLoggedin, isPharm, pharm)
 app.use('/',auth)
+
 
 app.get('/',(req,res)=>{
     return res.render('home')

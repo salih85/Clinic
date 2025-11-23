@@ -1,6 +1,6 @@
 const Patient = require('../models/Patient');
 const Consultation = require('../models/Consultation');
-
+const Doctor = require("../models/Doctor");
 
 exports.home = (req, res) => {
     const doctorName = req.user && req.user.name ? req.user.name : 'Doctor';
@@ -30,13 +30,9 @@ exports.addConsultation = async (req, res) => {
     res.redirect('/doctor/consultation');
 };
 
-exports.consultationList = async (req, res) => {
-    const consultations = await Consultation.find(); 
-    res.render('doctor/consultation', { consultations });
-};
 
 exports.consultationList = async (req, res) => {
-    const consultations = await Consultation.find();
+    const consultations = await Consultation.find(); 
     res.render('doctor/consultation', { consultations });
 };
 

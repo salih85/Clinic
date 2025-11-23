@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 const { isLoggedin, isDoctor } = require('../middlewares/auth');
 const doctorController = require('../controllers/doctor');
 

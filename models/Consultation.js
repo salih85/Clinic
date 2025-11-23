@@ -21,3 +21,4 @@ const cSchema = new mongoose.Schema({
 })
 
 module.exports =  mongoose.model('Consultation', cSchema);
+

@@ -12,37 +12,37 @@
 
     <%- include('../doctor/navber') %>
 
-      <div class="container mt-4">
-    <h2 class="text-primary mb-4">Consultation Details</h2>
+        <div class="container mt-4">
+            <h2 class="text-primary mb-4">Consultation Details</h2>
 
-    <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-            Consultation ID: <%= consultation._id %>
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    Consultation ID: <%= consultation._id %>
+                </div>
+                <div class="card-body">
+                    <p><strong>Patient Name:</strong>
+                        <%= consultation.patient %>
+                    </p>
+                    <p><strong>Problem:</strong>
+                        <%= consultation.topic %>
+                    </p>
+                    <p><strong>Medicine/Treatment Details:</strong>
+                        <%= consultation.prescription %>
+                    </p>
+                    <p>
+                        <strong>Status:</strong>
+                        <% if (consultation.status==='waiting' ) { %>
+                            <span class="badge badge-warning">Waiting</span>
+                            <% } else { %>
+                                <span class="badge badge-success">Completed</span>
+                                <% } %>
+                    </p>
+
+                    <a href="/doctor/consultation" class="btn btn-secondary mt-3">Back to List</a>
+
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            <p><strong>Patient Name:</strong>
-                <%= consultation.patient %>
-            </p>
-            <p><strong>Problem:</strong>
-                <%= consultation.topic %>
-            </p>
-            <p><strong>Medicine/Treatment Details:</strong>
-                <%= consultation.prescription %>
-            </p>
-            <p>
-                <strong>Status:</strong>
-                <% if (consultation.status==='waiting' ) { %>
-                    <span class="badge badge-warning">Waiting</span>
-                    <% } else { %>
-                        <span class="badge badge-success">Completed</span>
-                        <% } %>
-            </p>
-
-            <a href="/doctor/consultation" class="btn btn-secondary mt-3">Back to List</a>
-
-        </div>
-    </div>
-</div>
 
 </body>
 
